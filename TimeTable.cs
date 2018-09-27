@@ -98,7 +98,8 @@ namespace timesheet
 
         private void TimeTable_Load(object sender, EventArgs e)
         {
-            this.Text += " v" + Application.ProductVersion.ToString();
+            string[] version = Application.ProductVersion.ToString().Split('.');
+            this.Text += " v" + version[0] + "." + version[1];
             calendar = new PersianCalendar();
             database = new DataBase();
             WeekDaysLabels = new List<object>();
@@ -299,8 +300,8 @@ namespace timesheet
         {
             String dayStatus = "W";
             Color color = Color.LightGreen;
-            int from, to;
-            from = to = 0;
+            int from, to, WORK, REST;
+            from = to = WORK = REST = 0;
             string changeStatus = dayStatus;
             for (int i = 1; i <= MaxDay; i++)
             {
@@ -325,11 +326,8 @@ namespace timesheet
                     if (rest.Contains(i.ToString()))
                         dayStatus = "R";
                     else
-                    {
                         dayStatus = "W";
-                        Available[i - 1]++;
-                        Total[i - 1]++;
-                    }
+
                     if (dayStatus == "W")
                         color = Color.LightGreen;
                     else if (dayStatus == "R")
@@ -339,6 +337,15 @@ namespace timesheet
                     color = Color.LightBlue;
                 else if (dayStatus == "A")
                     color = Color.Khaki;
+
+                if (dayStatus == "W")
+                {
+                    Available[i - 1]++;
+                    Total[i - 1]++;
+                    WORK++;
+                }
+                else if (dayStatus == "R")
+                    REST++;
 
                 this.Controls[PERSON + id + "-" + i].Text = dayStatus;
                 this.Controls[PERSON + id + "-" + i].Tag = dayStatus + "~" + id + "~" + Year + "~" + Month + "~" + i;
@@ -351,10 +358,10 @@ namespace timesheet
                     this.Controls[PERSON + id + "-" + i].Tag = null;
                     this.Controls[PERSON + id + "-" + i].BackColor = Color.White;
                 }
-            this.Controls[PERSON_WORK + id].Text = (MaxDay - (rest.Count - 1)).ToString();
-            this.Controls[PERSON_REST + id].Text = (rest.Count - 1).ToString();
-            Work += MaxDay - (rest.Count - 1);
-            Rest += rest.Count - 1;
+            this.Controls[PERSON_WORK + id].Text = (WORK).ToString();
+            this.Controls[PERSON_REST + id].Text = (REST).ToString();
+            Work += WORK;
+            Rest += REST;
         }
 
         void AddLabel(String name, String text, Point point, Size size, Color color)
