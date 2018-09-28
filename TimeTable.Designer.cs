@@ -37,6 +37,7 @@
             this.lblNameTitle = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
+            this.llblProfile = new System.Windows.Forms.LinkLabel();
             this.btnNow = new System.Windows.Forms.Button();
             this.btnGoTo = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -147,6 +148,20 @@
             this.btnPrev.UseVisualStyleBackColor = true;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
+            // llblProfile
+            // 
+            this.llblProfile.AutoSize = true;
+            this.llblProfile.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.llblProfile.LinkArea = new System.Windows.Forms.LinkArea(18, 10);
+            this.llblProfile.Location = new System.Drawing.Point(842, 701);
+            this.llblProfile.Name = "llblProfile";
+            this.llblProfile.Size = new System.Drawing.Size(180, 19);
+            this.llblProfile.TabIndex = 17;
+            this.llblProfile.TabStop = true;
+            this.llblProfile.Text = "Coded by ImTO1 -- @s_vahid_h";
+            this.llblProfile.UseCompatibleTextRendering = true;
+            this.llblProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblProfile_LinkClicked);
+            // 
             // btnNow
             // 
             this.btnNow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -173,12 +188,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1030, 100);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(1034, 729);
             this.Controls.Add(this.btnGoTo);
             this.Controls.Add(this.btnNow);
+            this.Controls.Add(this.llblProfile);
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblNameTitle);
@@ -189,18 +202,20 @@
             this.Controls.Add(this.lblDepartment);
             this.Controls.Add(this.lblWorkMonth);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(100, 100);
+            this.MaximumSize = new System.Drawing.Size(1050, 768);
+            this.MinimumSize = new System.Drawing.Size(1050, 768);
             this.Name = "TimeTable";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Time Table";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "BEHMERD TimeSheet";
             this.Load += new System.EventHandler(this.TimeTable_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -214,6 +229,7 @@
         private System.Windows.Forms.Label lblNameTitle;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.LinkLabel llblProfile;
         private System.Windows.Forms.Button btnNow;
         private System.Windows.Forms.Button btnGoTo;
     }

@@ -67,12 +67,6 @@
     <Compile Include="frmGoTo.Designer.cs">
       <DependentUpon>frmGoTo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Master.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Master.Designer.cs">
-      <DependentUpon>Master.cs</DependentUpon>
-    </Compile>
     <Compile Include="PersianCalendar.cs" />
     <Compile Include="Personnel.cs" />
     <Compile Include="TimeSheet.cs" />
@@ -90,9 +84,6 @@
     <EmbeddedResource Include="frmGoTo.resx">
       <DependentUpon>frmGoTo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Master.resx">
-      <DependentUpon>Master.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="TimeTable.resx">
       <DependentUpon>TimeTable.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,7 +95,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -121,8 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appointment_dwK_icon.ico" />
-    <None Include="Resources\connectwork.png" />
-    <None Include="Resources\538272.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

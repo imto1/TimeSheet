@@ -16,7 +16,7 @@ namespace timesheet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Master());
+            Application.Run(new TimeTable());
         }
     }
 }
