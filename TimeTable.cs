@@ -14,7 +14,7 @@ namespace timesheet
 
         PersianCalendar calendar;
         DataBase database;
-        int MaxDay, SheetY, SheetX, x, y, Year, Month, row, Rest, Work, Height = 20, TotalWork, TotalRest;
+        int MaxDay, SheetY, SheetX, x, y, Year, Month, row, Rest, Work, TotalWork, TotalRest, Height = 20;
         bool HasChange = false;
         List<Object> WeekDaysLabels;
         int[] Available, Total;
@@ -98,8 +98,6 @@ namespace timesheet
 
         private void TimeTable_Load(object sender, EventArgs e)
         {
-            string[] version = Application.ProductVersion.ToString().Split('.');
-            this.Text += " v" + version[0] + "." + version[1];
             calendar = new PersianCalendar();
             database = new DataBase();
             WeekDaysLabels = new List<object>();

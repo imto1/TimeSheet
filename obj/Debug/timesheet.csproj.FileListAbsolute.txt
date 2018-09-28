@@ -19,3 +19,4 @@ D:\00-Vahid\Dropbox\workshop\timesheet-c#-windows-app\timesheet\obj\Debug\timesh
 D:\00-Vahid\Dropbox\workshop\timesheet-c#-windows-app\timesheet\bin\Debug\System.Data.SQLite.xml
 D:\00-Vahid\Dropbox\workshop\timesheet-c#-windows-app\timesheet\obj\Debug\timesheet.frmChange.resources
 D:\00-Vahid\Dropbox\workshop\timesheet-c#-windows-app\timesheet\obj\Debug\timesheet.frmGoTo.resources
+D:\00-Vahid\Dropbox\workshop\timesheet-c#-windows-app\timesheet\obj\Debug\timesheet.Master.resources
