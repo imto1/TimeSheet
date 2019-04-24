@@ -10,7 +10,7 @@ namespace timesheet
         DataBase db;
         PersianCalendar calendar;
         bool HasHistory = false;
-        bool HasChangeToSave = false;
+        bool HasChangeToSave;
 
         public frmChange()
         {
@@ -81,6 +81,7 @@ namespace timesheet
             lblName.Text = person.getName();
             HasChangeToSave = !HasHistory;
             btnRemove.Visible = HasHistory;
+            HasChangeToSave = false;
         }
 
         bool HistoryCheck(Changes change)

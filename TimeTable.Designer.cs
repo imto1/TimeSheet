@@ -40,6 +40,7 @@
             this.llblProfile = new System.Windows.Forms.LinkLabel();
             this.btnNow = new System.Windows.Forms.Button();
             this.btnGoTo = new System.Windows.Forms.Button();
+            this.btnAddPersonnel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblDepartment
@@ -184,11 +185,24 @@
             this.btnGoTo.UseVisualStyleBackColor = true;
             this.btnGoTo.Click += new System.EventHandler(this.btnGoTo_Click);
             // 
+            // btnAddPersonnel
+            // 
+            this.btnAddPersonnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddPersonnel.AutoSize = true;
+            this.btnAddPersonnel.Location = new System.Drawing.Point(12, 691);
+            this.btnAddPersonnel.Name = "btnAddPersonnel";
+            this.btnAddPersonnel.Size = new System.Drawing.Size(152, 26);
+            this.btnAddPersonnel.TabIndex = 20;
+            this.btnAddPersonnel.Text = "اضافه کردن پرسنل";
+            this.btnAddPersonnel.UseVisualStyleBackColor = true;
+            this.btnAddPersonnel.Click += new System.EventHandler(this.btnAddPersonnel_Click);
+            // 
             // TimeTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 729);
+            this.Controls.Add(this.btnAddPersonnel);
             this.Controls.Add(this.btnGoTo);
             this.Controls.Add(this.btnNow);
             this.Controls.Add(this.llblProfile);
@@ -232,6 +246,7 @@
         private System.Windows.Forms.LinkLabel llblProfile;
         private System.Windows.Forms.Button btnNow;
         private System.Windows.Forms.Button btnGoTo;
+        private System.Windows.Forms.Button btnAddPersonnel;
     }
 }
 

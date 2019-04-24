@@ -78,6 +78,7 @@
             // txtYear
             // 
             this.txtYear.Location = new System.Drawing.Point(139, 12);
+            this.txtYear.MaxLength = 4;
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(50, 20);
             this.txtYear.TabIndex = 5;

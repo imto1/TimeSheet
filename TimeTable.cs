@@ -60,6 +60,19 @@ namespace timesheet
             }
         }
 
+        private void btnAddPersonnel_Click(object sender, EventArgs e)
+        {
+            Form Person = new frmEditPerson();
+            if (Person.ShowDialog() == DialogResult.OK)
+            {
+                ClearForm();
+                init();
+                FillHeaders();
+                FillTable();
+                this.Refresh();
+            }
+        }
+
         private void llblProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.ProcessStartInfo info = new System.Diagnostics.ProcessStartInfo("https://www.instagram.com/s_vahid_h/");
@@ -273,7 +286,7 @@ namespace timesheet
                 String rests = ts.getRestDays(Year, Month);
                 String[] Rests = rests.Split('~');
                 List<String> rest = new List<string>(Rests);
-                AddPerson(person.getId(), person.getName(), rest);
+                AddPerson(person.getId(), rest);
             }
 
             for (int i = 0; i < Available.Length; i++)
@@ -296,7 +309,7 @@ namespace timesheet
             TotalRest += Rest;
         }
 
-        void AddPerson(int id, String name, List<String> rest)
+        void AddPerson(int id, List<String> rest)
         {
             String dayStatus = "W";
             Color color = Color.LightGreen;
@@ -349,6 +362,7 @@ namespace timesheet
 
                 this.Controls[PERSON + id + "-" + i].Text = dayStatus;
                 this.Controls[PERSON + id + "-" + i].Tag = dayStatus + "~" + id + "~" + Year + "~" + Month + "~" + i;
+                this.Controls[PERSON + id].Tag = id;
                 this.Controls[PERSON + id + "-" + i].BackColor = color;
             }
             if (MaxDay < 31)
@@ -367,7 +381,7 @@ namespace timesheet
         void AddLabel(String name, String text, Point point, Size size, Color color)
         {
             Label lbl = new Label();
-            Object label;
+            //Object label;
             lbl.Name = name;
             lbl.Location = point;
             lbl.Text = text;
@@ -389,7 +403,8 @@ namespace timesheet
         void ClearForm()
         {
             List<String> header = new List<string> { "lblDepartment", "lblWorkMonth", "lblWeekDayTitle",
-                "lblRowTitle", "lblNameTitle", "lblWorkCount", "lblRestCount", "btnPrev", "btnNext", "llblProfile", "btnNow", "btnGoTo" };
+                "lblRowTitle", "lblNameTitle", "lblWorkCount", "lblRestCount", "btnPrev", "btnNext",
+                "llblProfile", "btnNow", "btnGoTo", "btnAddPersonnel" };
             while (this.Controls.Count > header.Count)
             {
                 foreach (Control control in this.Controls)
@@ -414,6 +429,20 @@ namespace timesheet
                     Form Change = new frmChange(change);
                     if (Change.ShowDialog() == DialogResult.OK)
                     {
+                        FillHeaders();
+                        FillTable();
+                        this.Refresh();
+                    }
+                }
+                else
+                {
+                    Personnel person = new Personnel();
+                    person = database.getPerson(int.Parse(control.Tag.ToString()));
+                    Form Person = new frmEditPerson(person);
+                    if (Person.ShowDialog() == DialogResult.OK)
+                    {
+                        ClearForm();
+                        init();
                         FillHeaders();
                         FillTable();
                         this.Refresh();
